@@ -3,12 +3,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>@yield('title') :: Larab4 Blog</title>
 <!-- plugins:css -->
-<link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
-<link rel="stylesheet" href="{{ asset('vendors/base/vendor.bundle.base.css') }}">
+<link rel="stylesheet" href="{{ asset('vendors/admin/ti-icons/css/themify-icons.css') }}">
+<link rel="stylesheet" href="{{ asset('vendors/admin/base/vendor.bundle.base.css') }}">
 <!-- endinject -->
 <!-- plugin css for this page -->
 <!-- End plugin css for this page -->
 <!-- inject:css -->
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
 <!-- endinject -->
 <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
