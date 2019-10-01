@@ -9,7 +9,11 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return redirect()->route('admin.dashboard');
+        if(auth()->user())
+        {
+            return redirect()->route('admin.dashboard');
+        }
+        return view('admin.login_form');
     }
     public function login(Request $request)
     {
