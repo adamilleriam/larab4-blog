@@ -11,13 +11,22 @@
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select name="category_id" class="form-control" id="category">
-                            <option>Sports</option>
-                            <option>News</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <select name="author_id" class="form-control" id="author">
+                            @foreach($authors as $author)
+                                <option value="{{ $author->id }}">{{ $author->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" placeholder="Title">
+                        <input name="title" type="text" class="form-control" id="title" placeholder="Title">
                     </div>
                     <div class="form-group">
                         <label for="content">Content</label>
@@ -27,14 +36,14 @@
                     <label for="#">Status</label>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="status" id="published">
+                                <input value="published" type="radio" class="form-check-input" name="status" id="published">
                                 Published
                             </label>
                         </div>
                         <div class="form-check">
 
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="status" id="unpublished">
+                                <input value="unpublished" type="radio" class="form-check-input" name="status" id="unpublished">
                                 Unpublished
                             </label>
                         </div>

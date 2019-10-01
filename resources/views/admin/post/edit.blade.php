@@ -12,30 +12,39 @@
                         <div class="form-group">
                             <label for="category">Category</label>
                             <select name="category_id" class="form-control" id="category">
-                                <option value="sports">Sports</option>
-                                <option value="news" selected>News</option>
+                                @foreach($categories as $category)
+                                    <option @if($category->id == $post->category_id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <select name="author_id" class="form-control" id="author">
+                                @foreach($authors as $author)
+                                    <option @if($author->id == $post->author_id) selected @endif value="{{ $author->id }}">{{ $author->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title" placeholder="Title" value="Title">
+                            <input value="{{ $post->title }}" name="title" type="text" class="form-control" id="title" placeholder="Title">
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea name="content" class="form-control" id="content" rows="6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam consequuntur distinctio dolor, earum ipsam iure molestias pariatur provident quis reprehenderit? Architecto illo incidunt nulla suscipit totam! Culpa magni non optio.</textarea>
+                            <textarea name="content" class="form-control" id="content" rows="6">{{ $post->content }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="#">Status</label>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" checked class="form-check-input" name="status" id="published">
+                                    <input @if($post->status == 'published') checked @endif value="published" type="radio" class="form-check-input" name="status" id="published">
                                     Published
                                 </label>
                             </div>
                             <div class="form-check">
 
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="status" id="unpublished">
+                                    <input @if($post->status == 'unpublished') checked @endif value="unpublished" type="radio" class="form-check-input" name="status" id="unpublished">
                                     Unpublished
                                 </label>
                             </div>
