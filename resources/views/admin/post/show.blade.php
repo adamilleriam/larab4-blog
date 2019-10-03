@@ -20,6 +20,11 @@
                             <br>
                             {{ $post->published_at }}
                         </p>
+                        @if($post->image != null)
+                            <p>
+                                <img src="{{ asset($post->image) }}" width="100%" alt="">
+                            </p>
+                        @endif
                         <p>{{ $post->content }}</p>
                         <div class="text-right">
                             <a href="{{ route('post.index') }}" class="btn btn-dark btn-sm">Back</a>

@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Edit post</h4>
-                    <form class="forms-sample" action="{{ route('post.update',1) }}" method="post">
+                    <form class="forms-sample" action="{{ route('post.update',$post->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="form-group">
@@ -55,9 +55,13 @@
                             <div class="input-group col-xs-12">
                                 <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                 <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
+                                  <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                </span>
                             </div>
+
+                            @if($post->image != null)
+                                <img src="{{ asset($post->image) }}" width="30%" alt="">
+                            @endif
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Update</button>
                         <button class="btn btn-light">Cancel</button>

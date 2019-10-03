@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Create new blog</h4>
-                <form class="forms-sample" action="{{ route('post.store') }}" method="post">
+                <form class="forms-sample" action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="category">Category</label>
@@ -52,7 +52,7 @@
                         <label>Image</label>
                         <input type="file" name="image" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <input name="image" type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                             <span class="input-group-append">
                           <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
