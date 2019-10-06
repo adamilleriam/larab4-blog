@@ -14,5 +14,6 @@ class Post extends Model
         'published_at',
         'status',
         'image',
+        'is_featured',
         ];
 }

@@ -66,6 +66,10 @@ class PostController extends Controller
         $data['title'] = $request->title;
         $data['content'] = $request->content;
         $data['status'] = $request->status;
+        if($request->has('is_featured'))
+        {
+            $data['is_featured'] = $request->is_featured;
+        }
         if($request->status == 'published'){
             $data['published_at'] = date('Y-m-d');
         }
