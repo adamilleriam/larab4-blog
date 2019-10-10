@@ -24,7 +24,7 @@
             <!-- END main-content -->
 
             <div class="col-md-12 col-lg-4 sidebar">
-                @include('front._right_sidebar')
+{{--                @include('front._right_sidebar')--}}
             </div>
             <!-- END sidebar -->
 
