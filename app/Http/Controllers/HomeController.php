@@ -11,15 +11,10 @@ class HomeController extends Controller
     public function index(){
         $data['featured_posts'] = Post::with(['category','author'])->published()->where('is_featured',1)->get();
         $data['latest_posts'] = Post::with(['category','author'])->published()->orderBy('id','desc')->paginate(8);
-        $data['popular_posts'] = Post::published()->orderBy('total_hit','desc')->limit(3)->get();
-        $data['categories'] = Category::all();
-//        dd($data['latest_posts']);
         return view('front.index',$data);
     }
     public function details($id)
     {
-        $data['popular_posts'] = Post::published()->orderBy('total_hit','desc')->limit(3)->get();
-//        $data['categories'] = Category::all();
         $post = Post::with(['category','author'])->findOrFail($id);
         $post->increment('total_hit');
         $data['post'] = $post;
@@ -29,5 +24,10 @@ class HomeController extends Controller
     public function about()
     {
         return view('front.about');
+    }
+    public function category($id)
+    {
+        $data['posts'] = Post::where('category_id',$id)->published()->orderBy('id','DESC')->paginate(8);
+        return view('front.category_posts',$data);
     }
 }
